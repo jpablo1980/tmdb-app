@@ -4,9 +4,8 @@
 
 export const environment = {
   production: false,
-  tmdb: {
-    key: '8700109c81bbe95a85a019a929a9e5b8',
-  }
+  tmdbApiKey: '8700109c81bbe95a85a019a929a9e5b8',
+
 };
 
 /*
