@@ -86,7 +86,7 @@
           }
         },
         "test": {
-          "builder": "@angular-builders/custom-webpack:karma",
+          "builder": "@angular-builders/custom-webpack:browser",
           "options": {
             "main": "src/test.ts",
             "polyfills": "src/polyfills.ts",
