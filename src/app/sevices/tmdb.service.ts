@@ -8,13 +8,14 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class TmdbService {
-  URI: string = "";
+    private URI = 'https://api.themoviedb.org/3/movie/popular?api_key=';
+
 
   constructor(private httpClient: HttpClient) {
-    this.URI = "https://api.themoviedb.org/3/movie/popular?api_key="
   }
 
-  getPopularMovie() {
+  // tslint:disable-next-line:typedef
+  getPopularMovies() {
     return this.httpClient.get(this.URI + environment.tmdbApiKey);
   }
 
