@@ -7,6 +7,7 @@ import {TmdbService} from '../sevices/tmdb.service';
   templateUrl: './movie-list.component.html',
   styleUrls: ['./movie-list.component.scss']
 })
+
 export class MovieListComponent implements OnInit {
   movies: any[] = [];
   pictures: any[] = [];
