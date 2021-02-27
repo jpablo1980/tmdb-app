@@ -8,11 +8,16 @@ import { environment } from '../../environments/environment';
 })
 export class TmdbService {
   private BASE_URL = 'https://api.themoviedb.org/3/';
-  private URI = 'https://api.themoviedb.org/3/movie/popular?api_key=';
   private API_KEY: string;
 
   constructor(private httpClient: HttpClient) {
     this.API_KEY = environment.tmdbApiKey;
+  }
+
+  // tslint:disable-next-line:typedef
+  getPopularMovies() {
+    const url = this.buildUrl('movie/popular');
+    return this.httpClient.get(url);
   }
 
 
