@@ -11,12 +11,6 @@ export class SearchMovieComponent implements OnInit {
   constructor(private tmdbService: TmdbService) { }
 
   ngOnInit(): void {
-    this.tmdbService.search(searchWord)
-      .subscribe((response: any) => {
-        console.log(response);
-        this.movies = response.results;
-        console.log(this.movies);
-      });
   }
 
 }
