@@ -8,7 +8,7 @@ import {TmdbService} from '../sevices/tmdb.service';
 })
 export class SearchMovieComponent implements OnInit {
 
-  constructor() { }
+  constructor(private tmdbService: TmdbService) { }
 
   ngOnInit(): void {
   }
