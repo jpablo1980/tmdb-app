@@ -1,16 +1,35 @@
 import { Component, OnInit } from '@angular/core';
-import {TmdbService} from '../sevices/tmdb.service';
+import { TmdbService } from '../sevices/tmdb.service';
 
 @Component({
   selector: 'app-search-movie',
   templateUrl: './search-movie.component.html',
-  styleUrls: ['./search-movie.component.scss']
+  styleUrls: ['./search-movie.component.scss'],
 })
 export class SearchMovieComponent implements OnInit {
+  constructor(private tmdbService: TmdbService) {}
+  searching: any[] = [];
+  results: any[] = [];
 
-  constructor(private tmdbService: TmdbService) { }
-
-  ngOnInit(): void {
+  ngOnInit(): void {}
+  
+  onPress() {
+    this.display = !this.display;
   }
 
+
+  getSearch(searchQuery: string) {
+    this.tmdbService
+      .searchEverything(searchQuery)
+      .subscribe((response: any) => {
+        this.searching = response.results;
+        console.log(this.searching);
+      });
+  }
+
+  search(event: any) {
+    this.searching =  event.target.value.toLowerCase();
+    this.getSearch(this.searching);
+    console.log(this.searching);
+  }
 }
