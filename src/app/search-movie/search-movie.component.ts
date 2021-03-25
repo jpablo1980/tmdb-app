@@ -8,8 +8,9 @@ import { TmdbService } from '../sevices/tmdb.service';
 })
 export class SearchMovieComponent implements OnInit {
   constructor(private tmdbService: TmdbService) {}
-  searching: any[] = [];
+  searching: string = "";
   results: any[] = [];
+  display: Boolean =  false;
 
   ngOnInit(): void {}
   
