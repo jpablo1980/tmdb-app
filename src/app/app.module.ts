@@ -5,13 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SearchMovieComponent  } from './search-movie/search-movie.component';
 import { MovieListComponent } from './movie-list/movie-list.component';
+import { MovieDetailComponent  } from './movie-detail/movie-detail.component';
+
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     MovieListComponent,
-    SearchMovieComponent 
+    SearchMovieComponent,
+    MovieDetailComponent
   ],
   imports: [
     BrowserModule,
