@@ -3,64 +3,46 @@
   <div class="max-w-7xl mx-auto py-16 px-4 sm:py-10 sm:px-6 lg:px-8">
     <div class="text-center">
       <p
-        class="
-          mt-1
-          text-4xl
-          font-extrabold
-          text-gray-900
-          sm:text-5xl
-          sm:tracking-tight
-          lg:text-6xl
-        "
+        class="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl"
       >
         The Movie Database - Angular App
       </p>
-      <br />
-      <form action="#" class="mt-12 sm:mx-auto sm:max-w-lg sm:flex">
-        <div
-          class="
-            w-full
-            h-10
-            pl-3
-            pr-2
-            bg-white
-            border
-            rounded-full
-            flex
-            justify-between
-            items-center
-            relative
-          "
+      <br>
+      <section class="mx-auto text-center align-middle text-2xl font-bold underline">
+  <a href="#" (click)="onPress()">
+    Top 20 Movies Right Now
+  </a>
+</section>
+<form
+        action="#"
+        class="mt-12 sm:mx-auto sm:max-w-lg sm:flex"
         >
-          <input
-            (keyup)="search($event)"
-            type="text"
-            value=""
-            name="search"
-            id="search"
-            placeholder="Search"
-            class="
-              appearance-none
-              w-full
-              outline-none
-              focus:outline-none
-              active:outline-none
-            "
-          />
-          <button
-            (click)="search($event)"
-            type="submit"
-            class="ml-1 outline-none focus:outline-none active:outline-none"
-          >
-            <svg
-              fill="none"
+        <div
+        class="w-full h-10 pl-3 pr-2 bg-white border rounded-full flex justify-between items-center relative"
+        >
+        <input
+        (keyup)="search($event)"
+        type="text"
+        value=""
+        name="search"
+        id="search"
+        placeholder="Search"
+        class="appearance-none w-full outline-none focus:outline-none active:outline-none"
+        />
+        <button
+        (click)="search($event)"
+        type="submit"
+        class="ml-1 outline-none focus:outline-none active:outline-none"
+        >
+        <svg
+        fill="none"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
               stroke-width="2"
               viewBox="0 0 24 24"
               class="w-6 h-6"
-            >
+              >
               <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
             </svg>
           </button>
@@ -69,11 +51,9 @@
     </div>
   </div>
 </div>
-<section class="mx-auto text-center align-middle text-2xl font-bold underline">
-  <a href="#" (click)="onPress()"> Top 20 Movies Right Now </a>
-</section>
 
-<div id="comp-render">
-  <router-outlet></router-outlet>
+  <div id="comp-render" *ngIf="display">
+    <router-outlet></router-outlet>
   <app-movie-list></app-movie-list>
-</div>
+
+  </div>
