@@ -9,6 +9,7 @@ import { environment } from '../../environments/environment';
 export class TmdbService {
   private BASE_URL = 'https://api.themoviedb.org/3/';
   private API_KEY: string;
+  movie: object ={};
 
   constructor(private httpClient: HttpClient) {
     this.API_KEY = environment.tmdbApiKey;
@@ -33,6 +34,13 @@ export class TmdbService {
       return this.httpClient.get(url);
     }
     
+    setMovie(data: object){
+      this.movie = data;
+    }
+
+    getMovie(){
+      return this.movie;
+    }
 
   // tslint:disable-next-line:typedef
   // for få detaljer for en film https://api.themoviedb.org/3/movie/464052?api_key=8700109c81bbe95a85a019a929a9e5b8
