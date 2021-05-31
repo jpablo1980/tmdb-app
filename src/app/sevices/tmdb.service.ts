@@ -10,10 +10,11 @@ export class TmdbService {
   private BASE_URL = 'https://api.themoviedb.org/3/';
   private API_KEY: string;
 
+  movie: object ={};
+  
   constructor(private httpClient: HttpClient) {
     this.API_KEY = environment.tmdbApiKey;
   }
-
 
   buildUrl(service: string, query: string | null = null): string {
     if (query) {
@@ -21,16 +22,24 @@ export class TmdbService {
     }
     return `${this.BASE_URL}${service}?api_key=${this.API_KEY}`;
   }
-  // tslint:disable-next-line:typedef
+
   getPopularMovies() {
     const url = this.buildUrl('movie/popular');
     return this.httpClient.get(url);
   }
-    // tslint:disable-next-line:typedef
-   
+
+  
     searchEverything(query: any) {
       const url = this.buildUrl('search/multi', query);
       return this.httpClient.get(url);
+    }
+
+    setMovie(data: object){
+      this.movie = data;
+    }
+
+    getMovie(){
+      return this.movie;
     }
     
 
