@@ -29,7 +29,8 @@ export class SearchMovieComponent implements OnInit {
   }
 
   search(event: any) {
-    this.searching =  event.target.value.toLowerCase();
+    event.stopPropagation();
+    this.searching =  event.target.value;
     this.getSearch(this.searching);
     console.log(this.searching);
   }
