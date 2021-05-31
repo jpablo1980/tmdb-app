@@ -8,13 +8,12 @@ import {TmdbService} from '../sevices/tmdb.service';
   styleUrls: ['./movie-detail.component.scss'],
 })
 export class MovieDetailComponent implements OnInit {
-  movie: object = {};
-  
+  movie: any;
+
   constructor(private tmdbService: TmdbService) { }
 
   ngOnInit(): void {
     this.movie = this.tmdbService.getMovie()
-    console.log(this.movie);
   }
 
 }

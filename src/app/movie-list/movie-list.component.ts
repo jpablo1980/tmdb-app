@@ -19,16 +19,12 @@ export class MovieListComponent implements OnInit {
   ngOnInit(): void {
     this.tmdbService.getPopularMovies()
       .subscribe((response: any) => {
-          console.log(response);
           this.movies = response.results;
-          console.log(this.movies);
         });
   }
 
   movieDetailPage(pageName:string, movie:object):void{
-    this.router.navigate([`${pageName}`])
-    console.log(movie);
-    
+    this.router.navigate([`${pageName}`])    
     this.tmdbService.setMovie(movie);
   }
 }
