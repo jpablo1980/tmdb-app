@@ -18,6 +18,7 @@ export class SearchMovieComponent implements OnInit {
     this.display = !this.display;
   }
 
+
   getSearch(searchQuery: string) {
     this.tmdbService
       .searchEverything(searchQuery)
@@ -28,8 +29,7 @@ export class SearchMovieComponent implements OnInit {
   }
 
   search(event: any) {
-    event.stopPropagation();
-    this.searching =  event.target.value;
+    this.searching =  event.target.value.toLowerCase();
     this.getSearch(this.searching);
     console.log(this.searching);
   }
