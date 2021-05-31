@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {TmdbService} from '../sevices/tmdb.service';
+import { Router} from '@angular/router';
 
 
 @Component({
@@ -12,15 +13,18 @@ export class MovieListComponent implements OnInit {
   movies: any[] = [];
   pictures: any[] = [];
 
-  constructor(private tmdbService: TmdbService) {
+  constructor(private tmdbService: TmdbService, private router: Router) {
   }
 
   ngOnInit(): void {
     this.tmdbService.getPopularMovies()
       .subscribe((response: any) => {
-          console.log(response);
           this.movies = response.results;
-          console.log(this.movies);
         });
+  }
+
+  movieDetailPage(pageName:string, movie:object):void{
+    this.router.navigate([`${pageName}`])    
+    this.tmdbService.setMovie(movie);
   }
 }
