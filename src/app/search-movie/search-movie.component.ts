@@ -16,15 +16,14 @@ export class SearchMovieComponent implements OnInit {
   
   onPress() {
     this.display = !this.display;
-  }
+    }
 
 
   getSearch(searchQuery: string) {
     this.tmdbService
       .searchEverything(searchQuery)
       .subscribe((response: any) => {
-        this.searching = response.results;
-        console.log(this.searching);
+        this.results = response.results;      
       });
   }
 
@@ -32,6 +31,7 @@ export class SearchMovieComponent implements OnInit {
     event.stopPropagation();
     this.searching =  event.target.value;
     this.getSearch(this.searching);
+    this.display = false;
     console.log(this.searching);
   }
 }

@@ -9,12 +9,14 @@ import { SearchMovieComponent  } from './search-movie/search-movie.component';
 import { MovieListComponent } from './movie-list/movie-list.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { SearchResultComponent } from './search-result/search-result.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MovieListComponent,
     SearchMovieComponent,
+    SearchResultComponent,
   ],
   imports: [
     BrowserModule,
